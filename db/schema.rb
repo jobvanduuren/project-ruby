@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628135357) do
+ActiveRecord::Schema.define(version: 20170628140829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 20170628135357) do
     t.string "surname"
     t.string "colour"
     t.text "comment"
+    t.bigint "batch_id"
+    t.index ["batch_id"], name: "index_students_on_batch_id"
   end
 
+  add_foreign_key "students", "batches"
 end
