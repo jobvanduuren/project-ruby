@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170628095729) do
+ActiveRecord::Schema.define(version: 20170628140829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "batches", force: :cascade do |t|
+    t.integer "batch_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "end_date"
+    t.datetime "start_date"
+  end
 
   create_table "students", force: :cascade do |t|
     t.string "image_url"
@@ -23,6 +31,9 @@ ActiveRecord::Schema.define(version: 20170628095729) do
     t.string "surname"
     t.string "colour"
     t.text "comment"
+    t.bigint "batch_id"
+    t.index ["batch_id"], name: "index_students_on_batch_id"
   end
 
+  add_foreign_key "students", "batches"
 end

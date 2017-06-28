@@ -4,4 +4,6 @@ class Student < ApplicationRecord
 
   validates :image_url, length: { maximum: 400 }, allow_blank: true
 
+  belongs_to :batch
+
 end
