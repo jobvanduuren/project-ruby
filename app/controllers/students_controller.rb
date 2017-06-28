@@ -44,6 +44,10 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
+  def name
+    student.first_name + student.surname
+  end
+
   private
 
   def student_params
