@@ -6,4 +6,8 @@ class Student < ApplicationRecord
 
   belongs_to :batch
 
+  def self.chronological
+    Student.order('first_name ASC')
+  end
+
 end
