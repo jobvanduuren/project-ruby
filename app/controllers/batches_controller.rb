@@ -9,4 +9,9 @@ class BatchesController < ApplicationController
     @students = @batch.students
   end
 
+  def new
+    @batch = Batch.new
+  end
+
+
 end
