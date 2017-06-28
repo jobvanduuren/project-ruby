@@ -16,5 +16,8 @@
   <%= f.label :image_url %>
   <%= f.text_field :image_url %>
 
+  <%= f.label :batch_id %>
+  <%= f.collection_select(:batch_id, Batch.all, :id, :batch_number) %>
+
   <%= f.submit (@student.new_record? ? "Create" : "Update") %>
 <% end %>

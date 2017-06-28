@@ -3,3 +3,8 @@
 <% @batches.each do |batch| %>
     <p><%= link_to "Batch ", batch_path(batch.id) %> <%= link_to batch.batch_number, batch_path(batch.id) %></p>
 <% end %>
+
+<br>
+
+<%= link_to "[New Batch]", new_batch_path %>
+<%= link_to "[New Student]", new_student_path %>
