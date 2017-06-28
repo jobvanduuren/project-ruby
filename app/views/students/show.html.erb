@@ -1,2 +1,7 @@
 <h1> <%= @student.first_name %> <%= @student.surname %> </h1>
 <%= image_tag @student.image_url %>
+
+<hr>
+
+<%= link_to "[Edit]", edit_student_path(@student.id) %>
+<%= link_to "[Delete]", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" } %>

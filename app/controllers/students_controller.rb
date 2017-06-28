@@ -13,8 +13,6 @@ class StudentsController < ApplicationController
   end
 
   def create
-    student_params = params.require(:student).permit(:first_name, :surname, :image_url)
-
     @student = Student.new(student_params)
 
     if @student.save
@@ -22,6 +20,34 @@ class StudentsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def edit
+    @student = Student.find(params[:id])
+  end
+
+  def update
+    @student = Student.find(params[:id])
+
+    if @student.update_attributes(student_params)
+      redirect_to @student
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @student = Student.find(params[:id])
+
+    @student.destroy
+
+    redirect_to students_path
+  end
+
+  private
+
+  def student_params
+    params.require(:student).permit(:first_name, :surname, :image_url)
   end
 
 end
