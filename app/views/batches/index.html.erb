@@ -1,5 +1,5 @@
 <h1>Batches</h1>
 
 <% @batches.each do |batch| %>
-<p> Batch: <%= batch.batch_number %></p>
+    <p>Batch: <%= link_to batch.batch_number, batch_path(batch.id) %></p>
 <% end %>
