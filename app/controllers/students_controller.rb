@@ -1,7 +1,8 @@
 class StudentsController < ApplicationController
 
   def index
-    @students = Student.all
+    
+    @students = Student.all.chronological
   end
 
   def show
