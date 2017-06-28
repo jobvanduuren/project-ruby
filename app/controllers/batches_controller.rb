@@ -37,6 +37,13 @@ class BatchesController < ApplicationController
     end
   end
 
+  def destroy
+    @batch = Batch.find(params[:id])
+
+    @batch.destroy
+
+    redirect_to batches_path
+  end
 
 private
 

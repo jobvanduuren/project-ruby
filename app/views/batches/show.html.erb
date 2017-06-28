@@ -10,3 +10,4 @@
 <br>
 
 <%= link_to "[Edit Batch]", edit_batch_path(@batch.id) %>
+<%= link_to "[Delete]", batch_path(@batch.id), method: :delete, data: { confirm: "Are you sure?" } %>
