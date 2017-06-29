@@ -16,7 +16,7 @@ class AssessmentsController < ApplicationController
     @assessment = Assessment.new(assessment_params)
 
     if @assessment.save
-      redirect_to batches_path
+      redirect_to @assessment
     else
       render 'new'
     end
@@ -30,7 +30,7 @@ class AssessmentsController < ApplicationController
     @assessment = Assessment.find(params[:id])
 
     if @assessment.update_attributes(assessment_params)
-      redirect_to batches_path
+      redirect_to @assessment
     else
       render 'edit'
     end
@@ -47,7 +47,7 @@ class AssessmentsController < ApplicationController
 private
 
   def assessment_params
-    params.require(:assessment).permit(:colour, :comment, :date)
+    params.require(:assessment).permit(:colour, :comment, :date, :student_id)
   end
 
 end

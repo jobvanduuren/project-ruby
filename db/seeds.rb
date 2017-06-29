@@ -24,4 +24,5 @@ student4 = Student.create!( { first_name: "Steve", surname: "Bennet", colour: ""
     { colour: "Green", student: student1 },
     { colour: "Red", student: student2 },
     { colour: "Yellow", student: student3 },
+    { colour: "Red", student: student1 },
   ])
