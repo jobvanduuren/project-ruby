@@ -3,6 +3,7 @@ class StudentsController < ApplicationController
   def index
 
     @students = Student.all.chronological
+    @students2 = Student.order("RANDOM()")
   end
 
   def show
