@@ -3,10 +3,16 @@
 <br>
 
 <% @student.assessments.each do |assessment| %>
-      <li><%= assessment.colour %></li>
+      <h4><%= assessment.colour %> <%= assessment.date %></h4>
     <% end %>
+<%= link_to "New Assessment", new_assessment_path %>
 
+<br>
 <hr>
 
-<%= link_to "[Edit]", edit_student_path(@student.id) %>
-<%= link_to "[Delete]", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" } %>
+
+
+
+
+<%= link_to "[Edit Student]", edit_student_path(@student.id) %>
+<%= link_to "[Delete Student]", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" } %>

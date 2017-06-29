@@ -21,8 +21,8 @@ student4 = Student.create!( { first_name: "Steve", surname: "Bennet", colour: ""
 
 
   Assessment.create!([
-    { colour: "Green", student: student1 },
-    { colour: "Red", student: student2 },
-    { colour: "Yellow", student: student3 },
-    { colour: "Red", student: student1 },
+    { colour: "Green", date: DateTime.parse("2017-06-01"), student: student1 },
+    { colour: "Red", date: DateTime.parse("2017-06-02"), student: student2 },
+    { colour: "Yellow", date: DateTime.parse("2017-06-04"), student: student3 },
+    { colour: "Red", date: DateTime.parse("2017-06-05"), student: student1 },
   ])
