@@ -1,0 +1,18 @@
+<%= form_for @assessment do |f| %>
+
+  
+
+  <%= f.label :colour %>
+  <%= f.select(:colour, options_for_select(["Red", "Yellow", "Green"])) %>
+
+  <%=  f.label :date %>
+  <%= f.date_select :date, id: :assessment_date %>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+
+  <%= f.label :student_id %>
+  <%= f.collection_select(:student_id, Student.all, :id, :first_name) %>
+
+  <%= f.submit (@assessment.new_record? ? "Create" : "Update") %>
+<% end %>
