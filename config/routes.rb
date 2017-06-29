@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root "batches#index"
+  root to: 'batches#index'
+
+  devise_for :users
+
 
   resources :students
   resources :batches
