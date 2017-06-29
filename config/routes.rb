@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  root to: 'batches#index'
 
   devise_for :users
-  
+
 
   resources :students
   resources :batches
