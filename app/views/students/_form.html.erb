@@ -8,7 +8,10 @@
 </ul>
 
   <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+
+
+<%= f.select(:first_name, options_for_select(["Bert", "Ann", "Marga"])) %>
+
 
   <%= f.label :surname %>
   <%= f.text_field :surname %>
