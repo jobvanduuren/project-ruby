@@ -1,12 +1,13 @@
 class StudentsController < ApplicationController
 
   def index
-    
+
     @students = Student.all.chronological
   end
 
   def show
     @student = Student.find(params[:id])
+    @assessments = @student.assessments
   end
 
   def new

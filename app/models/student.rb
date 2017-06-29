@@ -5,6 +5,7 @@ class Student < ApplicationRecord
   validates :image_url, length: { maximum: 400 }, allow_blank: true
 
   belongs_to :batch
+  has_many :assessments
 
   def self.chronological
     Student.order('first_name ASC')

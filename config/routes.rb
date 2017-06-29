@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resources :students
   resources :batches
+  resources :assessments
 
 end

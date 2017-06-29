@@ -1,5 +1,14 @@
 <h1> <%= @student.first_name %> <%= @student.surname %> </h1>
 <%= image_tag @student.image_url %>
+<br>
+
+<% @student.assessments.each do |assessment| %>
+      <li><%= assessment.colour %></li>
+    <% end %>
+
+<hr>
+
+
 
 <hr>
 
