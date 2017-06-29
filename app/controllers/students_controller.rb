@@ -46,6 +46,10 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
+  def contact
+    @assessment = Assessment.new
+  end
+
   def name
     student.first_name + student.surname
   end
