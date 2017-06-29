@@ -9,15 +9,14 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render "shared/navbar" %>
 
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <div class="container">
     <%= yield %>
-
-    <br><br>
-    <hr>
-
-    <%= link_to "[All Batches]", root_path %>
+  </div>
 
   </body>
 </html>
