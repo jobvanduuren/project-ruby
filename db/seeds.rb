@@ -5,9 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.delete_all
 Assessment.delete_all
 Student.delete_all
 Batch.delete_all
+
+User.create!( email: 'job@gmail.com', password: '1234abcd')
 
 batch1 = Batch.create!(batch_number: 1, start_date: DateTime.now, end_date: DateTime.now)
 batch2 = Batch.create!(batch_number: 2, start_date: DateTime.now, end_date: DateTime.now)
