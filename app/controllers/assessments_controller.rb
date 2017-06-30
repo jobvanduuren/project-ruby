@@ -17,7 +17,7 @@ class AssessmentsController < ApplicationController
     @assessment = Assessment.new(assessment_params)
 
     if @assessment.save
-      redirect_to @assessment
+      redirect_to batches_path
     else
       render 'new'
     end
