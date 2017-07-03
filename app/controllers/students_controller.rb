@@ -10,6 +10,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @assessments = @student.assessments
+    @assessment = Assessment.new
   end
 
   def new
