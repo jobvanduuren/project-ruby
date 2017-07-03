@@ -4,7 +4,8 @@
 
 
 <% @students.each do |student| %>
-    <p><%= link_to student.first_name, student_path(student.id) %> <%= link_to student.surname, student_path(student.id) %></p>
+    <% student_l = "#{student.first_name} #{student.surname}" %>
+    <p><%= link_to student_l, student_path(student.id) %></p>
 <% end %>
 
 <br>

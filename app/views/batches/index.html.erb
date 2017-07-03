@@ -3,7 +3,8 @@
 
 
 <% @batches.each do |batch| %>
-    <p><%= link_to "Batch ", batch_path(batch.id) %> <%= link_to batch.batch_number, batch_path(batch.id) %></p>
+    <% batch_l = "Batch #{batch.batch_number}" %>
+    <p><%= link_to batch_l, batch_path(batch.id) %></p>
 <% end %>
 
 <br>
