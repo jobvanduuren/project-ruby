@@ -13,7 +13,7 @@
   <%= f.date_select :start_date, id: :batch_start_date %>
 
   <%=  f.label :end_date %>
-  <%= f.date_select :start_date, id: :batch_start_date %>
+  <%= f.date_select :end_date, id: :batch_end_date %>
 
 
   <%= f.submit (@batch.new_record? ? "Create" : "Update") %>
