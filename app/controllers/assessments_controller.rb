@@ -7,6 +7,7 @@ class AssessmentsController < ApplicationController
 
   def show
     @assessment = Assessment.find(params[:id])
+    @student = Student.find(@assessment.student_id)
   end
 
   def new
