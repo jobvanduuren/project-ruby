@@ -1,61 +1,101 @@
 
 <div class="container">
+  <div class="row">
+    <div class="col-md-6">
 
-<div class="row">
+      <h1> <%= @student.first_name %> <%= @student.surname %> </h1>
+      <%= image_tag @student.image_url %>
+      <br>
 
+      <% @student.assessments.each do |assessment| %>
+            <h4><%= assessment.colour %> <%= assessment.date %></h4>
+      <% end %>
 
-<div class="col-md-6">
+    </div>
 
+    <div class="col-md-6">
 
+      <h1>Assessment</h1>
+      <%= form_for @assessment do |f| %>
 
-<h1> <%= @student.first_name %> <%= @student.surname %> </h1>
-<%= image_tag @student.image_url %>
-<br>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
 
-<% @student.assessments.each do |assessment| %>
-      <h4><%= assessment.colour %> <%= assessment.date %></h4>
-<% end %>
+            <%= f.label :colour %>
 
+          </div>
 
+          <div class="col-md-2">
 
-</div>
+            <%= f.select(:colour, options_for_select(["Red", "Yellow", "Green"], "Green")) %>
 
+          </div>
+        </div>
+      </div>
 
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
 
-<div class="col-md-6">
+            <%=  f.label :date %>
 
-<h1>Assessment</h1>
+          </div>
 
-<%= form_for @assessment do |f| %>
+          <div class="col-md-2">
 
-  <%= f.label :colour %>
-  <%= f.select(:colour, options_for_select(["Red", "Yellow", "Green"], "Green")) %>
-<br>
+            <%= f.date_select :date, id: :assessment_date %>
 
-  <%=  f.label :date %>
-  <%= f.date_select :date, id: :assessment_date %>
-<br>
-  <%= f.label :comment %>
-  <%= f.text_area :comment %>
-<br>
-  <%= f.label :student_id %>
-  <%= f.collection_select(:student_id, Student.all, :id, :first_name, {:selected => @student.id}) %>
-<br>
-  <%= f.submit (@assessment.new_record? ? "Create" : "Update") %>
-<% end %>
+          </div>
+        </div>
+      </div>
 
-</div>
-</div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
 
-<div class="row">
-<div class="col-md-12">
+            <%= f.label :comment %>
 
+          </div>
 
+          <div class="col-md-2">
 
+            <%= f.text_area :comment %>
 
-<%= link_to "[Edit Student]", edit_student_path(@student.id) %>
-<%= link_to "[Delete Student]", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" } %>
+          </div>
+        </div>
+      </div>
 
-</div>
-</div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-2">
+
+            <%= f.label :student_id %>
+
+          </div>
+
+          <div class="col-md-2">
+              <%= f.collection_select(:student_id, Student.all, :id, :first_name, {:selected => @student.id}) %>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+
+        <%= f.submit (@assessment.new_record? ? "Create" : "Update") %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+
+      <%= link_to "[Edit Student]", edit_student_path(@student.id) %>
+      <%= link_to "[Delete Student]", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" } %>
+
+    </div>
+  </div>
 </div>
