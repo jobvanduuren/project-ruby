@@ -2,7 +2,7 @@ class BatchesController < ApplicationController
 before_action :authenticate_user!
 
   def index
-    @batches = Batch.all
+    @batches = Batch.all.chronological
   end
 
   def show
