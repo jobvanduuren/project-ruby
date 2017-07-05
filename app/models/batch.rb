@@ -7,5 +7,8 @@ class Batch < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
 
+  def self.chronological
+    Batch.order('batch_number ASC')
+  end
 
 end

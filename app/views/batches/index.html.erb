@@ -1,14 +1,38 @@
 <h1>Batches</h1>
 
+<div class="row">
+
+
+<div class="batch-list">
 
 
 <% @batches.each do |batch| %>
+  <div class="col-md-3">
+
+
+    <div class="thumbnail">
+      <img src="https://lh5.ggpht.com/8h4a-QzLFHu3pxFZ-Np8AyyUCq1G97T1_7F3ScjbBaxb6wGSdoCLHanFtnQa9kbg0d4=w300" alt="default">
+      <div class="caption">
+
+
     <% batch_l = "Batch #{batch.batch_number}" %>
-    <p><%= link_to batch_l, batch_path(batch.id) %></p>
+    <h3><%= link_to batch_l, batch_path(batch.id) %></h3>
+      </div>
+      </div>
+      </div>
 <% end %>
+
+
+</div>
+
+</div>
 
 <br>
 
-<%= link_to "[Ask Question]", students_path %>
-<%= link_to "[New Batch]", new_batch_path %>
-<%= link_to "[New Student]", new_student_path %>
+<div class="row">
+
+<!-- <p><%= link_to "Ask Question", students_path, class: "btn btn-primary" %></p> -->
+
+<footer>  <%= link_to "New Batch", new_batch_path, class: "btn btn-primary" %> <%= link_to "New Student", new_student_path, class: "btn btn-primary" %> </footer>
+
+</div>
