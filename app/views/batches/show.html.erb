@@ -1,14 +1,26 @@
-<h1> Batch <%= @batch.batch_number %></h1>
 
-<h2>Students</h2>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+
+    <h1 class="panel-title"> Batch <%= @batch.batch_number %></h1>
+
+  </div>
+
+  <div class="panel-body">
 
 
-<% @students.each do |student| %>
-    <% student_l = "#{student.first_name} #{student.surname}" %>
-    <p><%= link_to student_l, student_path(student.id) %></p>
-<% end %>
+    <h3>Students</h3>
+
+
+      <% @students.each do |student| %>
+          <% student_l = "#{student.first_name} #{student.surname}" %>
+          <h4><%= link_to student_l, student_path(student.id) %></h4>
+      <% end %>
+
+      <%= link_to "Edit Batch", edit_batch_path(@batch.id), class: "btn btn-primary" %>
+      <%= link_to "Delete Batch", batch_path(@batch.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-primary" %>
+
+  </div>
+</div>
 
 <br>
-
-<%= link_to "[Edit Batch]", edit_batch_path(@batch.id) %>
-<%= link_to "[Delete]", batch_path(@batch.id), method: :delete, data: { confirm: "Are you sure?" } %>
