@@ -8,7 +8,8 @@
       <br>
 
       <% @student.assessments.each do |assessment| %>
-            <h4><%= assessment.colour %> <%= assessment.date %></h4>
+      <% assessment_l = "#{assessment.colour} #{assessment.date}" %>
+            <h4><%= link_to assessment_l, assessment_path(assessment.id) %></h4>
       <% end %>
 
     </div>
