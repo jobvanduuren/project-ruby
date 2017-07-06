@@ -20,7 +20,8 @@ class AssessmentsController < ApplicationController
     if @assessment.save
       redirect_to request.referrer
     else
-      render 'new'
+      # render 'new'
+      redirect_to request.referrer
     end
   end
 
