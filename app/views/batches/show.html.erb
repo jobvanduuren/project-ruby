@@ -17,14 +17,14 @@
           <h4><%= link_to student_l, student_path(student.id) %></h4>
       <% end %>
 
-<div class="col-md-3 col-md-offset-9">
+        <div class="col-md-3 col-md-offset-9">
 
 
 
-      <%= link_to "Edit Batch", edit_batch_path(@batch.id), class: "btn btn-primary" %>
-      <%= link_to "Delete Batch", batch_path(@batch.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+          <p><%= link_to "Edit Batch", edit_batch_path(@batch.id), class: "btn btn-primary" %>
+          <%= link_to "Delete Batch", batch_path(@batch.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></p>
 
-      </div>
+        </div>
 
   </div>
 </div>
