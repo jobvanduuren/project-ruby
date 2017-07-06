@@ -4,8 +4,9 @@ class Student < ApplicationRecord
 
   validates :first_name, presence: true
   validates :surname, presence: true
+  validates :image_url, length: { maximum: 500 }, allow_blank: true, format: { with: %r{.(gif|jpg|png)\Z}i, message: 'must be a URL for GIF, JPG or PNG image.' }
+  
 
-  validates :image_url, length: { maximum: 400 }, allow_blank: true
 
 
 
