@@ -100,20 +100,22 @@
 
       <h1>Previous Assessments</h1>
 
-      <% @student.assessments.each do |assessment| %>
+
+
+      <% @assessments.each do |assessment| %>
 
 
 
             <% if assessment.colour == "Green" %>
-            <h4 class="evaluationgreen"><%= link_to "link", assessment_path(assessment.id) %></h4>
+            <h4 class="evaluationgreen"><%= link_to "Go", assessment_path(assessment.id) %></h4>
 
 
             <% elsif assessment.colour == "Yellow" %>
-            <h4 class="evaluationyellow"><%= link_to "link", assessment_path(assessment.id) %></h4>
+            <h4 class="evaluationyellow"><%= link_to "Go", assessment_path(assessment.id) %></h4>
 
 
             <% elsif assessment.colour == "Red" %>
-            <h4 class="evaluationred"><%= link_to "link", assessment_path(assessment.id) %></h4>
+            <h4 class="evaluationred"><%= link_to "Go", assessment_path(assessment.id) %></h4>
             <% end %>
 
       <% end %>

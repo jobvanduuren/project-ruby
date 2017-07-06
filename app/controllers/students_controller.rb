@@ -9,7 +9,7 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
-    @assessments = @student.assessments
+    @assessments = @student.assessments.order_by_number
     @assessment = Assessment.new
   end
 
