@@ -7,10 +7,27 @@
       <%= image_tag @student.image_url %>
       <br>
 
+
+
       <% @student.assessments.each do |assessment| %>
-      <% assessment_l = "#{assessment.colour} #{assessment.date}" %>
-            <h4><%= link_to assessment_l, assessment_path(assessment.id) %></h4>
+
+
+
+            <% if assessment.colour == "Green" %>
+            <h4 class="evaluationgreen"><%= link_to "link", assessment_path(assessment.id) %></h4>
+            <% end %>
+
+            <% if assessment.colour == "Yellow" %>
+            <h4 class="evaluationyellow"><%= link_to "link", assessment_path(assessment.id) %></h4>
+            <% end %>
+
+            <% if assessment.colour == "Red" %>
+            <h4 class="evaluationred"><%= link_to "link", assessment_path(assessment.id) %></h4>
+            <% end %>
+
       <% end %>
+
+
 
     </div>
 

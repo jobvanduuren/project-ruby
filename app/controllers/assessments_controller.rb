@@ -32,7 +32,7 @@ class AssessmentsController < ApplicationController
     @assessment = Assessment.find(params[:id])
 
     if @assessment.update_attributes(assessment_params)
-      redirect_to @assessment
+      redirect_to student_path(@assessment.student_id)
     else
       render 'edit'
     end
