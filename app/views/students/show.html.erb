@@ -5,27 +5,14 @@
 
       <h1> <%= @student.first_name %> <%= @student.surname %> </h1>
       <%= image_tag @student.image_url %>
-      <br>
+      <br><br>
+
+      <%= link_to 'Back', :back, class:'btn btn-default' %>
+      <%= link_to "Edit Student", edit_student_path(@student.id), class: "btn btn-primary" %>
+      <%= link_to "Delete Student", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 
 
 
-      <% @student.assessments.each do |assessment| %>
-
-
-
-            <% if assessment.colour == "Green" %>
-            <h4 class="evaluationgreen"><%= link_to "link", assessment_path(assessment.id) %></h4>
-            <% end %>
-
-            <% if assessment.colour == "Yellow" %>
-            <h4 class="evaluationyellow"><%= link_to "link", assessment_path(assessment.id) %></h4>
-            <% end %>
-
-            <% if assessment.colour == "Red" %>
-            <h4 class="evaluationred"><%= link_to "link", assessment_path(assessment.id) %></h4>
-            <% end %>
-
-      <% end %>
 
 
 
@@ -111,9 +98,25 @@
   <div class="row">
     <div class="col-md-12">
 
-      <%= link_to 'Back', :back, class:'btn btn-default' %>
-      <%= link_to "Edit Student", edit_student_path(@student.id), class: "btn btn-primary" %>
-      <%= link_to "Delete Student", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <h1>Previous Assessments</h1>
+
+      <% @student.assessments.each do |assessment| %>
+
+
+
+            <% if assessment.colour == "Green" %>
+            <h4 class="evaluationgreen"><%= link_to "link", assessment_path(assessment.id) %></h4>
+
+
+            <% elsif assessment.colour == "Yellow" %>
+            <h4 class="evaluationyellow"><%= link_to "link", assessment_path(assessment.id) %></h4>
+
+
+            <% elsif assessment.colour == "Red" %>
+            <h4 class="evaluationred"><%= link_to "link", assessment_path(assessment.id) %></h4>
+            <% end %>
+
+      <% end %>
 
     </div>
   </div>
