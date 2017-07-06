@@ -22,7 +22,7 @@ class AssessmentsController < ApplicationController
     else
 
       # redirect_to request.referrer
-        
+
 
       render 'new'
     end
