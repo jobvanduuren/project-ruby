@@ -43,7 +43,7 @@ class AssessmentsController < ApplicationController
 
     @assessment.destroy
 
-    redirect_to batches_path
+    redirect_to student_path(@assessment.student_id)
   end
 
 private
