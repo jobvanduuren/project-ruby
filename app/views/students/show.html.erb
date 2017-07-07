@@ -8,8 +8,8 @@
       <br><br>
 
       <%= link_to 'Back', :back, class:'btn btn-default' %>
-      <%= link_to "Edit Student", edit_student_path(@student.id), class: "btn btn-primary" %>
-      <%= link_to "Delete Student", student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <%= link_to "Edit Student", edit_batch_student_path(@batch, @student), class: "btn btn-primary" %>
+      <%= link_to "Delete Student", batch_student_path(@student.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 
 
 

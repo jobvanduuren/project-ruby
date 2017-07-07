@@ -14,7 +14,7 @@
 
       <% @students.each do |student| %>
           <% student_l = "#{student.first_name} #{student.surname}" %>
-          <h4><%= link_to student_l, student_path(student.id) %></h4>
+          <h4><%= link_to student_l, batch_student_path(@batch, student.id) %></h4>
       <% end %>
 
         <div class="col-md-3 col-md-offset-9">
@@ -29,4 +29,4 @@
   </div>
 </div>
 
-<%= link_to 'Back', :back, class:'btn btn-default' %>
+<footer><%= link_to 'Back', :back, class:'btn btn-default' %> <%= link_to "New Student", new_batch_student_path(@batch, @student), class: "btn btn-primary" %> </footer>

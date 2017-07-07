@@ -11,27 +11,32 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @assessments = @student.assessments.order_by_number
     @assessment = Assessment.new
+    @batch = Batch.find(@student.batch_id)
   end
 
   def new
+    @batch = Batch.find(params[:batch_id])
     @student = Student.new
   end
 
   def create
+    @batch = Batch.find(params[:batch_id])
     @student = Student.new(student_params)
 
     if @student.save
-      redirect_to @student
+      redirect_to @student.batch
     else
       render 'new'
     end
   end
 
   def edit
+    @batch = Batch.find(params[:batch_id])
     @student = Student.find(params[:id])
   end
 
   def update
+    @batch = Batch.find(params[:batch_id])
     @student = Student.find(params[:id])
 
     if @student.update_attributes(student_params)
