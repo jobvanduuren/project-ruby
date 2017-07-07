@@ -1,5 +1,10 @@
-<%= form_for @assessment do |f| %>
 
+
+
+<div class="col-md-6">
+
+
+  <%= form_for @assessment do |f| %>
 
   <ul>
     <% @assessment.errors.full_messages.each do |msg| %>
@@ -7,17 +12,76 @@
     <% end %>
   </ul>
 
-  <%= f.label :colour %>
-  <%= f.select(:colour, options_for_select(["Red", "Yellow", "Green"])) %>
 
-  <%=  f.label :date %>
-  <%= f.date_select :date, id: :assessment_date %>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
 
-  <%= f.label :comment %>
-  <%= f.text_area :comment %>
+        <%= f.label :colour %>
 
-  <%= f.label :student_id %>
-  <%= f.collection_select(:student_id, Student.all, :id, :first_name) %>
+      </div>
 
-  <%= f.submit (@assessment.new_record? ? "Create" : "Update") %>
-<% end %>
+      <div class="col-md-2">
+
+        <%= f.select(:colour, options_for_select(["Red", "Yellow", "Green"], "Green")) %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
+
+        <%=  f.label :date %>
+
+      </div>
+
+      <div class="col-md-2">
+
+        <%= f.date_select :date, id: :assessment_date %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
+
+        <%= f.label :comment %>
+
+      </div>
+
+      <div class="col-md-2">
+
+        <%= f.text_area :comment %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
+
+        <%= f.label :student_id %>
+
+      </div>
+
+      <div class="col-md-2">
+          <%= f.collection_select(:student_id, Student.all, :id, :first_name) %>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+
+    <%= f.submit (@assessment.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'Back', :back, class:'btn btn-default' %>
+
+  </div>
+</div>
