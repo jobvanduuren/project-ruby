@@ -39,8 +39,9 @@ class StudentsController < ApplicationController
     @batch = Batch.find(params[:batch_id])
     @student = Student.find(params[:id])
 
+
     if @student.update_attributes(student_params)
-      redirect_to @student
+      redirect_to :action => "show", :id => @student.id
     else
       render 'edit'
     end
@@ -48,10 +49,11 @@ class StudentsController < ApplicationController
 
   def destroy
     @student = Student.find(params[:id])
+    @batch = Batch.find(@student.batch_id)
 
     @student.destroy
 
-    redirect_to students_path
+    redirect_to batch_path(@batch.id)
   end
 
   def name
