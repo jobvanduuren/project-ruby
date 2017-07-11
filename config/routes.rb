@@ -5,9 +5,11 @@ Rails.application.routes.draw do
 
 
 
-  resources :batches
+  resources :batches do
+    resources :students
+  end
 
-  resources :students 
+
   resources :assessments
 
 

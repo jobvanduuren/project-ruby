@@ -1,5 +1,5 @@
 
-<%= form_for @student do |f| %>
+<%= form_for ([@batch, @student]) do |f| %>
 
 <ul>
   <% @student.errors.full_messages.each do |msg| %>
@@ -17,7 +17,7 @@
   <%= f.text_field :image_url %>
 
   <%= f.label :batch_id %>
-  <%= f.collection_select(:batch_id, Batch.all, :id, :batch_number) %>
+  <%= f.collection_select(:batch_id, Batch.all, :id, :batch_number, {:selected => @batch.id}) %>
 
   <%= f.submit (@student.new_record? ? "Create" : "Update") %>
 <% end %>

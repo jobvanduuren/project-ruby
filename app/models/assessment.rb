@@ -1,7 +1,7 @@
 class Assessment < ApplicationRecord
   validates :colour, presence: true
   validates :date, presence: true
-  validates :date, uniqueness: true
+  
 
   belongs_to :student
 

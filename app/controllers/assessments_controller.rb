@@ -34,9 +34,11 @@ class AssessmentsController < ApplicationController
 
   def update
     @assessment = Assessment.find(params[:id])
+    @student = Student.find(@assessment.student_id)
+    @batch = Batch.find(@student.batch_id)
 
     if @assessment.update_attributes(assessment_params)
-      redirect_to student_path(@assessment.student_id)
+      redirect_to batch_student_path(@batch.id, @student.id)
     else
       render 'edit'
     end
@@ -44,10 +46,12 @@ class AssessmentsController < ApplicationController
 
   def destroy
     @assessment = Assessment.find(params[:id])
+    @student = Student.find(@assessment.student_id)
+    @batch = Batch.find(@student.batch_id)
 
     @assessment.destroy
 
-    redirect_to student_path(@assessment.student_id)
+    redirect_to batch_student_path(@batch.id, @student.id)
   end
 
 private
