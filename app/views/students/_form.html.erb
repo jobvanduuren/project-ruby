@@ -1,23 +1,86 @@
 
-<%= form_for ([@batch, @student]) do |f| %>
+<div class="col-md-6">
 
-<ul>
-  <% @student.errors.full_messages.each do |msg| %>
-  <li><%= msg %></li>
-  <% end %>
-</ul>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%= form_for ([@batch, @student]) do |f| %>
 
-  <%= f.label :surname %>
-  <%= f.text_field :surname %>
+  <ul>
+    <% @student.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
 
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
 
-  <%= f.label :batch_id %>
-  <%= f.collection_select(:batch_id, Batch.all, :id, :batch_number, {:selected => @batch.id}) %>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
 
-  <%= f.submit (@student.new_record? ? "Create" : "Update") %>
-<% end %>
+        <%= f.label :first_name %>
+
+      </div>
+
+      <div class="col-md-2">
+
+        <%= f.text_field :first_name %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
+
+        <%= f.label :surname %>
+
+      </div>
+
+      <div class="col-md-2">
+
+        <%= f.text_field :surname %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
+
+        <%= f.label :image_url %>
+
+      </div>
+
+      <div class="col-md-2">
+
+        <%= f.text_field :image_url %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-2">
+
+        <%= f.label :batch_id %>
+
+      </div>
+
+      <div class="col-md-2">
+          <%= f.collection_select(:batch_id, Batch.all, :id, :batch_number, {:selected => @batch.id}) %>
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="actions">
+
+    <%= link_to 'Back', :back, class:'btn btn-default' %>
+    <%= f.submit (@student.new_record? ? "Create" : "Update"), class: "btn btn-primary" %>
+    <% end %>
+
+
+  </div>
+</div>
