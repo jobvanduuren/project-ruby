@@ -99,9 +99,9 @@
   <div class="row">
     <div class="col-md-12">
 
-      <h1>Previous Assessments</h1>
+      <h1>All Assessments</h1>
 
-
+      <% if @student.assessments.any? %>
 
       <% @assessments.each do |assessment| %>
 
@@ -119,6 +119,10 @@
             <h4 class="evaluationred"><%= link_to "Go", assessment_path(assessment.id) %></h4>
             <% end %>
 
+      <% end %>
+
+      <% else %>
+      <p>There are no assessments yet for this student</p>
       <% end %>
 
     </div>
