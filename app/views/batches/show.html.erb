@@ -11,20 +11,23 @@
 
     <h3>Students</h3>
 
+    <% if @batch.students.any? %>
 
       <% @students.each do |student| %>
           <% student_l = "#{student.first_name} #{student.surname}" %>
           <h4><%= link_to student_l, batch_student_path(@batch, student.id) %></h4>
       <% end %>
 
-        <div class="col-md-3 col-md-offset-9">
+    <% else %>
+      <p>There are no students in this batch yet</p>
+    <% end %>
 
+    <div class="col-md-3 col-md-offset-9">
 
+      <p><%= link_to "Edit Batch", edit_batch_path(@batch.id), class: "btn btn-primary" %>
+      <%= link_to "Delete Batch", batch_path(@batch.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></p>
 
-          <p><%= link_to "Edit Batch", edit_batch_path(@batch.id), class: "btn btn-primary" %>
-          <%= link_to "Delete Batch", batch_path(@batch.id), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %></p>
-
-        </div>
+    </div>
 
   </div>
 </div>

@@ -1,38 +1,29 @@
 <h1>Batches</h1>
 
 <div class="row">
+  <div class="batch-list">
 
-
-<div class="batch-list">
-
-
-<% @batches.each do |batch| %>
-  <div class="col-md-3">
-
-
-    <div class="thumbnail">
-      <img src="https://lh5.ggpht.com/8h4a-QzLFHu3pxFZ-Np8AyyUCq1G97T1_7F3ScjbBaxb6wGSdoCLHanFtnQa9kbg0d4=w300" alt="default">
-      <div class="caption">
-
-
-    <% batch_l = "Batch #{batch.batch_number}" %>
-    <h3><%= link_to batch_l, batch_path(batch.id) %></h3>
+    <% if @batches.any? %>
+    <% @batches.each do |batch| %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+            <img src="https://lh5.ggpht.com/8h4a-QzLFHu3pxFZ-Np8AyyUCq1G97T1_7F3ScjbBaxb6wGSdoCLHanFtnQa9kbg0d4=w300" alt="default">
+          <div class="caption">
+            <% batch_l = "Batch #{batch.batch_number}" %>
+            <h3><%= link_to batch_l, batch_path(batch.id) %></h3>
+          </div>
+        </div>
       </div>
-      </div>
-      </div>
-<% end %>
+    <% end %>
+    <% else %>
+    <p>There are no batches yet</p>
+    <% end %>
 
-
-</div>
-
+  </div>
 </div>
 
 <br>
 
 <div class="row">
-
-
-
-<footer>  <%= link_to "New Batch", new_batch_path, class: "btn btn-primary" %> </footer>
-
+  <footer>  <%= link_to "New Batch", new_batch_path, class: "btn btn-primary" %> </footer>
 </div>
